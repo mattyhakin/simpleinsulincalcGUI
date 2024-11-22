@@ -42,6 +42,14 @@ def calculate():
     except ValueError:
         result_display.set("Invalid Input")
 
+# Function to clear all inputs and results
+def clear_inputs():
+    input_display.set("")
+    carbs_display.set("")
+    correctional_question.set("")
+    correction_display.set("")
+    result_display.set("")
+
 # Create the main window
 root = tk.Tk()
 root.title("Insulin Dose Calculator")
@@ -70,8 +78,9 @@ tk.Entry(root, textvariable=correction_display).grid(row=3, column=1, padx=5, pa
 tk.Label(root, text="Result:").grid(row=4, column=0, padx=5, pady=5)
 tk.Entry(root, textvariable=result_display, state="readonly").grid(row=4, column=1, padx=5, pady=5)
 
-# Calculate button
-tk.Button(root, text="Calculate", command=calculate).grid(row=5, column=0, columnspan=2, pady=10)
+# Buttons
+tk.Button(root, text="Calculate", command=calculate).grid(row=5, column=0, pady=10)
+tk.Button(root, text="Clear", command=clear_inputs).grid(row=5, column=1, pady=10)
 
 # Run the application
 root.mainloop()
